@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>게임 설치 공간 계산기 - 게임 용량 계산 | GameTool</title>
+
+    <meta
+        name="description"
+        content="게임 용량과 업데이트 공간을 입력하면 설치 가능한지 확인할 수 있는 무료 게임 설치 공간 계산기입니다."
+    >
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- 상단 메뉴 -->
+
+<nav class="navbar">
+
+    <div class="navbar-inner">
+
+        <a href="/" class="logo">
+            🎮 GameTool
+        </a>
+
+
+        <div class="nav-menu">
+
+            <a href="/">
+                홈
+            </a>
+
+            <a href="/download">
+                다운로드 계산기
+            </a>
+
+            <a href="/storage">
+                저장공간 계산기
+            </a>
+
+            <a href="/game-storage">
+                게임 설치 공간
+            </a>
+
+            <a href="/fps">
+                FPS 계산기
+            </a>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!-- 메인 -->
+
+<main>
+
+    <div class="container">
+
+
+        <!-- 계산기 -->
+
+        <div class="calculator">
+
+            <h1>
+                🎮 게임 설치 공간 계산기
+            </h1>
+
+
+            <p>
+                현재 저장공간으로 게임을 설치할 수 있는지
+                간편하게 확인해보세요.
+            </p>
+
+
+            <form method="POST">
+
+
+                <div class="input-group">
+
+                    <label>
+                        현재 여유 공간 (GB)
+                    </label>
+
+                    <input
+                        type="number"
+                        name="free_space"
+                        step="0.01"
+                        min="0"
+                        placeholder="예: 150"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="input-group">
+
+                    <label>
+                        게임 용량 (GB)
+                    </label>
+
+                    <input
+                        type="number"
+                        name="game_size"
+                        step="0.01"
+                        min="0"
+                        placeholder="예: 87"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="input-group">
+
+                    <label>
+                        업데이트 / 추가 공간 (GB)
+                    </label>
+
+                    <input
+                        type="number"
+                        name="update_size"
+                        step="0.01"
+                        min="0"
+                        placeholder="예: 20"
+                        required
+                    >
+
+                </div>
+
+
+
+                <button type="submit">
+                    설치 가능 여부 확인
+                </button>
+
+            </form>
+
+
+
+            {% if result %}
+
+            <div class="result">
+
+                {{ result | safe }}
+
+            </div>
+
+            {% endif %}
+
+
+
+            <a
+                href="/"
+                class="home-link"
+            >
+                ← GameTool 홈으로
+            </a>
+
+        </div>
+
+
+
+        <!-- SEO 콘텐츠 -->
+
+        <div class="calculator">
+
+
+            <h2>
+                📖 게임 설치 공간은 얼마나 필요할까요?
+            </h2>
+
+
+            <p>
+                게임을 설치할 때는 게임 자체의 용량뿐만 아니라
+                업데이트 파일과 설치 과정에서 필요한 임시 공간도
+                고려하는 것이 좋습니다.
+            </p>
+
+
+            <p>
+                특히 최근 PC 게임은 게임 하나의 용량이
+                수십 GB에서 100GB 이상인 경우도 있기 때문에
+                게임을 설치하기 전에 SSD나 HDD의
+                여유 공간을 확인하는 것이 좋습니다.
+            </p>
+
+
+
+            <h3>
+                🎮 게임 설치 공간 계산 방법
+            </h3>
+
+
+            <p>
+                필요한 공간은 기본적으로
+                게임 용량과 업데이트 및 추가 공간을
+                합쳐서 계산할 수 있습니다.
+            </p>
+
+
+            <p>
+                예를 들어 게임 용량이 80GB이고
+                업데이트에 필요한 공간이 20GB라면
+                약 100GB의 공간이 필요합니다.
+            </p>
+
+
+
+            <h3>
+                💾 업데이트 공간이 필요한 이유
+            </h3>
+
+
+            <p>
+                게임 업데이트 과정에서는 기존 파일을 수정하거나
+                새로운 파일을 다운로드하기 때문에
+                게임 자체의 설치 용량보다 더 많은
+                여유 공간이 필요할 수 있습니다.
+            </p>
+
+
+            <p>
+                따라서 게임의 공식 요구 저장공간만 확인하기보다는
+                어느 정도 추가 여유 공간을 확보하는 것이 좋습니다.
+            </p>
+
+
+
+            <h3>
+                🖥️ SSD 여유 공간을 얼마나 남겨야 하나요?
+            </h3>
+
+
+            <p>
+                SSD를 게임으로 가득 채우기보다는
+                운영체제와 프로그램, 업데이트 등을 고려해
+                어느 정도 여유 공간을 남겨두는 것이 좋습니다.
+            </p>
+
+
+            <p>
+                게임을 여러 개 설치할 예정이라면
+                현재 설치할 게임의 용량뿐만 아니라
+                앞으로 설치할 게임까지 고려해
+                SSD 용량을 선택하는 것이 편리합니다.
+            </p>
+
+
+
+            <h3>
+                📊 게임 용량 계산 예시
+            </h3>
+
+
+            <p>
+                현재 여유 공간이 200GB이고
+                게임 용량이 120GB,
+                업데이트 공간이 30GB라면
+                총 150GB가 필요합니다.
+            </p>
+
+
+            <p>
+                따라서 설치 후에는 약 50GB의
+                여유 공간이 남게 됩니다.
+            </p>
+
+
+
+            <h3>
+                ❓ 자주 묻는 질문
+            </h3>
+
+
+            <p>
+                <strong>
+                    Q. 게임 용량이 100GB라면 정확히 100GB만 있으면 되나요?
+                </strong>
+            </p>
+
+
+            <p>
+                반드시 그렇지는 않습니다.
+                설치와 업데이트 과정에서 추가 공간이
+                필요할 수 있으므로 여유 공간을 확보하는 것이 좋습니다.
+            </p>
+
+
+            <p>
+                <strong>
+                    Q. SSD와 HDD 중 어떤 저장장치를 사용해야 하나요?
+                </strong>
+            </p>
+
+
+            <p>
+                게임 로딩 속도와 전반적인 사용 편의성을 고려하면
+                일반적으로 SSD가 유리합니다.
+                다만 저장공간이 많이 필요하다면 HDD를
+                보조 저장장치로 사용하는 방법도 있습니다.
+            </p>
+
+
+            <p>
+                <strong>
+                    Q. 업데이트 공간은 항상 필요한가요?
+                </strong>
+            </p>
+
+
+            <p>
+                게임과 업데이트 방식에 따라 다릅니다.
+                일부 업데이트는 설치 과정에서
+                추가적인 임시 공간을 요구할 수 있습니다.
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+</main>
+
+
+
+<!-- 푸터 -->
+
+<footer class="footer">
+
+    GameTool © 2026
+
+    <br>
+
+    게임과 PC를 위한 무료 도구 사이트
+
+</footer>
+
+
+</body>
+
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>GameTool - 게임 & PC 무료 도구</title>
+
+    <meta
+        name="description"
+        content="게임과 PC에 필요한 다양한 무료 계산기와 도구를 제공합니다."
+    >
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='style.css') }}"
+    >
+
+</head>
+
+<body>
+
+
+    <!-- 상단 메뉴 -->
+
+    <nav class="navbar">
+
+        <div class="navbar-inner">
+
+            <a href="/" class="logo">
+                🎮 GameTool
+            </a>
+
+            <div class="nav-menu">
+
+                <a href="/">
+                    홈
+                </a>
+
+                <a href="/download">
+                    다운로드 계산기
+                </a>
+
+                <a href="/storage">
+                    저장공간 계산기
+                </a>
+
+                <a href="/fps">
+                    FPS 계산기
+                </a>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- 메인 -->
+
+    <main>
+
+        <div class="container">
+
+            <div class="header">
+
+                <h1>
+                    🎮 GameTool
+                </h1>
+
+                <p>
+                    게임과 PC를 위한 무료 도구 모음
+                </p>
+
+            </div>
+
+
+            <div class="tools">
+
+
+                <!-- 다운로드 -->
+
+                <a
+                    href="/download"
+                    class="tool-card"
+                >
+
+                    <h2>
+                        🌐 다운로드 시간 계산기
+                    </h2>
+
+                    <p>
+                        파일 크기와 인터넷 속도를 입력하여
+                        예상 다운로드 시간을 계산합니다.
+                    </p>
+
+                </a>
+
+
+                <!-- 저장공간 -->
+
+                <a
+                    href="/storage"
+                    class="tool-card"
+                >
+
+                    <h2>
+                        💾 저장공간 계산기
+                    </h2>
+
+                    <p>
+                        KB, MB, GB, TB 단위의
+                        저장공간을 변환합니다.
+                    </p>
+
+                </a>
+
+
+                <!-- 게임 설치 공간 -->
+
+                <a
+                    href="/game-storage"
+                    class="tool-card"
+                >
+
+                    <h2>
+                        🎮 게임 설치 공간 계산기
+                    </h2>
+
+                    <p>
+                        현재 저장공간으로 게임을
+                        설치할 수 있는지 확인합니다.
+                    </p>
+
+                </a>
+
+
+                <!-- FPS -->
+
+                <a
+                    href="/fps"
+                    class="tool-card"
+                >
+
+                    <h2>
+                        🎯 FPS 프레임타임 계산기
+                    </h2>
+
+                    <p>
+                        FPS를 입력하면 한 프레임의
+                        표시 시간을 계산합니다.
+                    </p>
+
+                </a>
+
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- 푸터 -->
+
+    <footer class="footer">
+
+        GameTool © 2026
+
+        <br>
+
+        게임과 PC를 위한 무료 도구 사이트
+
+    </footer>
+
+
+</body>
+
+</html>
