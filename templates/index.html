@@ -1,185 +1,84 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
-
     <meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>GameTool - 게임 & PC 무료 도구</title>
+    <title>GameTool - 게임 및 PC 계산기</title>
 
-    <meta
-        name="description"
-        content="게임과 PC에 필요한 다양한 무료 계산기와 도구를 제공합니다."
-    >
+    <meta name="description"
+          content="GameTool은 다운로드 시간, 저장공간, 게임 설치 용량, FPS 프레임타임을 간편하게 계산할 수 있는 무료 게임 및 PC 계산기 사이트입니다.">
 
-    <link
-        rel="stylesheet"
-        href="{{ url_for('static', filename='style.css') }}"
-    >
+    <meta name="keywords"
+          content="다운로드 시간 계산기, 게임 다운로드 시간, 저장공간 계산기, 게임 설치 용량 계산기, FPS 계산기, 프레임타임 계산기, PC 계산기">
 
+    <meta name="robots" content="index, follow">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 
 <body>
 
+    <div class="container">
 
-    <!-- 상단 메뉴 -->
+        <h1>GameTool</h1>
 
-    <nav class="navbar">
+        <p class="subtitle">
+            게임과 PC에 필요한 다양한 계산기를 무료로 이용하세요.
+        </p>
 
-        <div class="navbar-inner">
+        <div class="tools">
 
-            <a href="/" class="logo">
-                🎮 GameTool
+            <a href="/download" class="tool">
+                <h2>📥 다운로드 시간 계산기</h2>
+                <p>
+                    게임이나 파일의 용량과 인터넷 속도를 입력하면
+                    다운로드에 걸리는 시간을 계산합니다.
+                </p>
             </a>
 
-            <div class="nav-menu">
-
-                <a href="/">
-                    홈
-                </a>
-
-                <a href="/download">
-                    다운로드 계산기
-                </a>
-
-                <a href="/storage">
-                    저장공간 계산기
-                </a>
-
-                <a href="/fps">
-                    FPS 계산기
-                </a>
-
-            </div>
-
-        </div>
-
-    </nav>
-
-
-    <!-- 메인 -->
-
-    <main>
-
-        <div class="container">
-
-            <div class="header">
-
-                <h1>
-                    🎮 GameTool
-                </h1>
-
+            <a href="/storage" class="tool">
+                <h2>💾 저장공간 계산기</h2>
                 <p>
-                    게임과 PC를 위한 무료 도구 모음
+                    KB, MB, GB, TB 등 저장공간 단위를 간편하게 변환합니다.
                 </p>
+            </a>
 
-            </div>
+            <a href="/game-storage" class="tool">
+                <h2>🎮 게임 설치 공간 계산기</h2>
+                <p>
+                    현재 저장공간으로 게임을 설치할 수 있는지 계산합니다.
+                </p>
+            </a>
 
-
-            <div class="tools">
-
-
-                <!-- 다운로드 -->
-
-                <a
-                    href="/download"
-                    class="tool-card"
-                >
-
-                    <h2>
-                        🌐 다운로드 시간 계산기
-                    </h2>
-
-                    <p>
-                        파일 크기와 인터넷 속도를 입력하여
-                        예상 다운로드 시간을 계산합니다.
-                    </p>
-
-                </a>
-
-
-                <!-- 저장공간 -->
-
-                <a
-                    href="/storage"
-                    class="tool-card"
-                >
-
-                    <h2>
-                        💾 저장공간 계산기
-                    </h2>
-
-                    <p>
-                        KB, MB, GB, TB 단위의
-                        저장공간을 변환합니다.
-                    </p>
-
-                </a>
-
-
-                <!-- 게임 설치 공간 -->
-
-                <a
-                    href="/game-storage"
-                    class="tool-card"
-                >
-
-                    <h2>
-                        🎮 게임 설치 공간 계산기
-                    </h2>
-
-                    <p>
-                        현재 저장공간으로 게임을
-                        설치할 수 있는지 확인합니다.
-                    </p>
-
-                </a>
-
-
-                <!-- FPS -->
-
-                <a
-                    href="/fps"
-                    class="tool-card"
-                >
-
-                    <h2>
-                        🎯 FPS 프레임타임 계산기
-                    </h2>
-
-                    <p>
-                        FPS를 입력하면 한 프레임의
-                        표시 시간을 계산합니다.
-                    </p>
-
-                </a>
-
-
-            </div>
+            <a href="/fps" class="tool">
+                <h2>🖥️ FPS 프레임타임 계산기</h2>
+                <p>
+                    FPS 값을 입력하면 한 프레임이 표시되는 시간을 계산합니다.
+                </p>
+            </a>
 
         </div>
 
-    </main>
+        <section class="description">
 
+            <h2>무료 게임 및 PC 계산기</h2>
 
-    <!-- 푸터 -->
+            <p>
+                GameTool은 게임을 즐기는 데 필요한 다양한 정보를
+                쉽고 빠르게 계산할 수 있도록 만든 무료 계산기 사이트입니다.
+            </p>
 
-    <footer class="footer">
+            <p>
+                게임 다운로드 시간, 저장공간 변환,
+                게임 설치 가능 여부, FPS 프레임타임 등을
+                별도의 프로그램 설치 없이 웹 브라우저에서 바로 사용할 수 있습니다.
+            </p>
 
-        GameTool © 2026
+        </section>
 
-        <br>
-
-        게임과 PC를 위한 무료 도구 사이트
-
-    </footer>
-
+    </div>
 
 </body>
-
 </html>
