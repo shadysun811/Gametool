@@ -7,6 +7,11 @@ def google_verification():
     return send_from_directory(".", "googlefe08a61fd67fcbae.html")
 
 
+@app.route("/sitemap.xml")
+def sitemap():
+    return send_from_directory(".", "sitemap.xml")
+
+
 # =========================
 # 홈
 # =========================
