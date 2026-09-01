@@ -2,11 +2,18 @@ from flask import Flask, render_template, request, send_from_directory
 
 app = Flask(__name__)
 
+
+# =========================
+# Google 인증
+# =========================
 @app.route("/googlefe08a61fd67fcbae.html")
 def google_verification():
     return send_from_directory(".", "googlefe08a61fd67fcbae.html")
 
 
+# =========================
+# 사이트맵
+# =========================
 @app.route("/sitemap.xml")
 def sitemap():
     return send_from_directory(".", "sitemap.xml")
@@ -208,6 +215,62 @@ def fps():
 
     return render_template(
         "fps.html",
+        result=result
+    )
+
+
+# =========================
+# PC 전기요금 계산기
+# =========================
+@app.route("/electricity", methods=["GET", "POST"])
+def electricity():
+
+    result = None
+
+    if request.method == "POST":
+
+        try:
+            power = float(request.form["power"])
+            hours = float(request.form["hours"])
+            days = float(request.form["days"])
+            price = float(request.form["price"])
+
+            if power <= 0:
+                result = "소비전력은 0보다 커야 합니다."
+
+            elif hours < 0 or hours > 24:
+                result = "하루 사용시간은 0~24시간 사이로 입력해주세요."
+
+            elif days < 0 or days > 31:
+                result = "사용일수는 0~31일 사이로 입력해주세요."
+
+            elif price < 0:
+                result = "전력량 요금은 0 이상이어야 합니다."
+
+            else:
+
+                # W → kW
+                power_kw = power / 1000
+
+                # 예상 월간 전력 사용량(kWh)
+                monthly_kwh = power_kw * hours * days
+
+                # 예상 전기요금
+                monthly_cost = monthly_kwh * price
+
+                result = (
+                    f"⚡ <strong>예상 전기요금</strong><br><br>"
+                    f"월간 예상 사용량: "
+                    f"<strong>{monthly_kwh:.2f} kWh</strong><br>"
+                    f"예상 전기요금: "
+                    f"<strong>{monthly_cost:,.0f}원</strong>"
+                )
+
+        except ValueError:
+            result = "숫자를 올바르게 입력해주세요."
+
+    return render_template(
+        "electricity.html",
         result=result
     )
 
