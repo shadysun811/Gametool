@@ -1,6 +1,10 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, send_from_directory
 
 app = Flask(__name__)
+
+@app.route("/googlefe08a61fd67fcbae.html")
+def google_verification():
+    return send_from_directory(".", "googlefe08a61fd67fcbae.html")
 
 
 # =========================
