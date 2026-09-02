@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>FPS 프레임타임 계산기 - 60FPS 144FPS 프레임타임 | GameTool</title>
+    <title>FPS 프레임타임 계산기 - 60FPS 144FPS 240FPS | GameTool</title>
 
     <meta name="description"
           content="FPS 값을 입력하면 프레임타임을 밀리초(ms) 단위로 계산해주는 무료 FPS 프레임타임 계산기입니다.">
@@ -22,17 +22,39 @@
 
 <div class="container">
 
+    <!-- 네비게이션 -->
     <nav class="navbar">
 
-        <a href="/" class="logo">🎮 GameTool</a>
+        <a href="/" class="logo">
+            🎮 GameTool
+        </a>
 
         <div class="nav-links">
-            <a href="/download">다운로드 시간</a>
-            <a href="/storage">저장공간</a>
-            <a href="/game-storage">게임 설치</a>
-            <a href="/fps">FPS</a>
-            <a href="/electricity">전기요금</a>
-            <a href="/speed">인터넷 속도</a>
+
+            <a href="/download">
+                다운로드 시간
+            </a>
+
+            <a href="/storage">
+                저장공간
+            </a>
+
+            <a href="/game-storage">
+                게임 설치
+            </a>
+
+            <a href="/fps">
+                FPS
+            </a>
+
+            <a href="/electricity">
+                전기요금
+            </a>
+
+            <a href="/speed">
+                인터넷 속도
+            </a>
+
         </div>
 
     </nav>
@@ -45,6 +67,7 @@
     </p>
 
 
+    <!-- 계산기 -->
     <div class="calculator">
 
         <form method="POST">
@@ -62,7 +85,6 @@
                 placeholder="예: 144"
                 required
             >
-
 
             <button type="submit">
                 프레임타임 계산
@@ -82,7 +104,23 @@
     </div>
 
 
+    <!-- FPS 표 연결 -->
     <section class="description">
+
+        <h2>FPS별 프레임타임을 한눈에 확인하기</h2>
+
+        <p>
+            자주 사용하는 FPS의 프레임타임을 바로 확인하고 싶다면
+            FPS 프레임타임 표를 이용하세요.
+        </p>
+
+        <p>
+            <a href="/fps-table">
+                📊 60FPS · 120FPS · 144FPS · 165FPS · 240FPS · 360FPS
+                프레임타임 표 보기
+            </a>
+        </p>
+
 
         <h2>프레임타임이란?</h2>
 
@@ -106,21 +144,50 @@
         <h2>대표적인 FPS 프레임타임</h2>
 
         <p>
-            60 FPS는 약 16.67ms,
-            120 FPS는 약 8.33ms,
-            144 FPS는 약 6.94ms,
-            240 FPS는 약 4.17ms입니다.
+            60FPS는 약 16.67ms,
+            120FPS는 약 8.33ms,
+            144FPS는 약 6.94ms,
+            165FPS는 약 6.06ms,
+            240FPS는 약 4.17ms,
+            360FPS는 약 2.78ms입니다.
+        </p>
+
+
+        <h2>FPS와 모니터 주사율</h2>
+
+        <p>
+            모니터의 주사율(Hz)은 화면을 1초에 몇 번 갱신할 수 있는지를
+            나타냅니다.
+        </p>
+
+        <p>
+            예를 들어 144Hz 모니터는 최대 144Hz의 화면 갱신 주기를
+            지원합니다. 게임의 FPS와 모니터 주사율은 서로 관련이 있지만
+            같은 개념은 아닙니다.
         </p>
 
 
         <h2>자주 묻는 질문</h2>
 
-        <h3>144Hz 모니터에서는 몇 FPS가 필요한가요?</h3>
+        <h3>144FPS는 몇 ms인가요?</h3>
 
         <p>
-            일반적으로 144Hz 환경에서는 최대 144FPS까지
-            화면을 갱신할 수 있습니다. 게임과 그래픽 설정에 따라
-            실제 체감과 필요한 FPS는 달라질 수 있습니다.
+            144FPS의 프레임타임은 약 <strong>6.94ms</strong>입니다.
+        </p>
+
+
+        <h3>240FPS는 몇 ms인가요?</h3>
+
+        <p>
+            240FPS의 프레임타임은 약 <strong>4.17ms</strong>입니다.
+        </p>
+
+
+        <h3>60FPS와 144FPS의 차이는 무엇인가요?</h3>
+
+        <p>
+            60FPS는 약 16.67ms마다 한 프레임을 표시하고,
+            144FPS는 약 6.94ms마다 한 프레임을 표시합니다.
         </p>
 
     </section>
@@ -128,9 +195,13 @@
 
     <footer>
 
-        <p>© 2026 GameTool</p>
+        <p>
+            © 2026 GameTool
+        </p>
 
-        <p>게임과 PC에 필요한 다양한 계산기를 무료로 제공합니다.</p>
+        <p>
+            게임과 PC에 필요한 다양한 계산기를 무료로 제공합니다.
+        </p>
 
     </footer>
 
