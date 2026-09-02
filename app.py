@@ -345,6 +345,11 @@ def fps_table():
     return render_template("fps_table.html")
 
 
+@app.route("/reaction")
+def reaction():
+    return render_template("reaction.html")
+
+
 # =========================
 # 서버 실행
 # =========================
