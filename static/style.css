@@ -553,3 +553,261 @@ footer p {
         font-size: 12px;
     }
 }
+
+
+/* =========================
+   반응속도 테스트
+   ========================= */
+
+.reaction-box {
+    width: 700px;
+    max-width: 100%;
+
+    margin: 30px auto 42px;
+}
+
+.reaction-area {
+    min-height: 320px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.06);
+
+    transition:
+        background 0.15s ease,
+        border-color 0.15s ease;
+}
+
+.reaction-message {
+    margin-bottom: 25px;
+
+    color: #374151;
+
+    font-size: 18px;
+    font-weight: 700;
+
+    text-align: center;
+}
+
+#reaction-button {
+    min-width: 220px;
+
+    padding: 15px 30px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #1f2937;
+    color: #ffffff;
+
+    font-size: 16px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+#reaction-button:hover {
+    background: #111827;
+}
+
+#reaction-button:disabled {
+    cursor: default;
+}
+
+
+/* 테스트 대기 */
+
+.reaction-area.reaction-waiting {
+    background: #dc2626;
+    border-color: #dc2626;
+}
+
+.reaction-area.reaction-waiting .reaction-message {
+    color: #ffffff;
+}
+
+.reaction-area.reaction-waiting #reaction-button {
+    background: #ffffff;
+    color: #dc2626;
+}
+
+
+/* 클릭할 순간 */
+
+.reaction-area.reaction-ready {
+    background: #22c55e;
+    border-color: #22c55e;
+
+    cursor: pointer;
+}
+
+.reaction-area.reaction-ready .reaction-message {
+    color: #ffffff;
+}
+
+.reaction-area.reaction-ready #reaction-button {
+    background: #ffffff;
+    color: #166534;
+}
+
+
+/* 너무 빨리 클릭 */
+
+.reaction-area.reaction-false {
+    background: #f59e0b;
+    border-color: #f59e0b;
+}
+
+.reaction-area.reaction-false .reaction-message {
+    color: #ffffff;
+}
+
+
+/* 결과 */
+
+.reaction-result {
+    margin-top: 18px;
+
+    padding: 25px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.06);
+
+    text-align: center;
+}
+
+.reaction-result-title {
+    color: #64748b;
+
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.reaction-time {
+    margin-top: 5px;
+
+    color: #111827;
+
+    font-size: 42px;
+    font-weight: 800;
+}
+
+.reaction-grade {
+    margin-top: 8px;
+
+    color: #374151;
+
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.retry-button {
+    margin-top: 20px;
+
+    padding: 11px 24px;
+
+    border: none;
+    border-radius: 7px;
+
+    background: #1f2937;
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.retry-button:hover {
+    background: #111827;
+}
+
+.hidden {
+    display: none;
+}
+
+
+/* 반응속도 기준 */
+
+.reaction-guide {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 12px;
+
+    margin-top: 20px;
+}
+
+.reaction-guide div {
+    padding: 15px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+
+    text-align: center;
+}
+
+.reaction-guide strong {
+    display: block;
+
+    color: #111827;
+
+    font-size: 15px;
+}
+
+.reaction-guide span {
+    display: block;
+
+    margin-top: 3px;
+
+    color: #64748b;
+
+    font-size: 13px;
+}
+
+
+/* 모바일 */
+
+@media (max-width: 600px) {
+
+    .reaction-area {
+        min-height: 280px;
+
+        padding: 25px 15px;
+    }
+
+    .reaction-message {
+        font-size: 16px;
+    }
+
+    #reaction-button {
+        min-width: 180px;
+
+        padding: 14px 20px;
+    }
+
+    .reaction-time {
+        font-size: 36px;
+    }
+
+    .reaction-guide {
+        grid-template-columns: 1fr;
+    }
+}
