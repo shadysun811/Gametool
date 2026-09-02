@@ -95,7 +95,6 @@ def storage():
 
             else:
 
-                # 모든 값을 KB로 변환
                 if unit == "KB":
                     kb = value
 
@@ -252,7 +251,7 @@ def electricity():
                 # W → kW
                 power_kw = power / 1000
 
-                # 예상 월간 전력 사용량(kWh)
+                # 예상 월간 전력 사용량
                 monthly_kwh = power_kw * hours * days
 
                 # 예상 전기요금
@@ -271,6 +270,69 @@ def electricity():
 
     return render_template(
         "electricity.html",
+        result=result
+    )
+
+
+# =========================
+# 인터넷 속도 계산기
+# =========================
+@app.route("/speed", methods=["GET", "POST"])
+def speed():
+
+    result = None
+
+    if request.method == "POST":
+
+        try:
+            file_size = float(request.form["file_size"])
+            hours = float(request.form["hours"])
+            minutes = float(request.form["minutes"])
+
+            if file_size <= 0:
+                result = "파일 크기는 0보다 커야 합니다."
+
+            elif hours < 0:
+                result = "시간은 0 이상이어야 합니다."
+
+            elif minutes < 0 or minutes >= 60:
+                result = "분은 0~59 사이로 입력해주세요."
+
+            elif hours == 0 and minutes == 0:
+                result = "목표 시간은 0보다 커야 합니다."
+
+            else:
+
+                # 목표 시간을 초로 변환
+                total_seconds = (hours * 3600) + (minutes * 60)
+
+                # GB → MB
+                file_mb = file_size * 1024
+
+                # 필요한 MB/s
+                required_mb_per_second = file_mb / total_seconds
+
+                # MB/s → Mbps
+                required_mbps = required_mb_per_second * 8
+
+                if required_mbps >= 1000:
+                    speed_result = f"{required_mbps / 1000:.2f} Gbps"
+                else:
+                    speed_result = f"{required_mbps:,.0f} Mbps"
+
+                result = (
+                    "🚀 <strong>필요한 인터넷 속도</strong><br><br>"
+                    f"파일 크기: <strong>{file_size:g} GB</strong><br>"
+                    f"목표 시간: <strong>{int(hours)}시간 "
+                    f"{int(minutes)}분</strong><br><br>"
+                    f"필요한 속도: <strong>{speed_result}</strong>"
+                )
+
+        except ValueError:
+            result = "숫자를 올바르게 입력해주세요."
+
+    return render_template(
+        "speed.html",
         result=result
     )
 
