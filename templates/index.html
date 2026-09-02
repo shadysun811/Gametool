@@ -10,7 +10,7 @@
           content="GameTool에서 다운로드 시간, 저장공간, 게임 설치 공간, FPS 프레임타임, PC 전기요금, 인터넷 속도를 무료로 계산해보세요.">
 
     <meta name="keywords"
-          content="게임 계산기, PC 계산기, 다운로드 시간 계산기, 저장공간 계산기, 게임 설치 공간 계산기, FPS 계산기, 전기요금 계산기, 인터넷 속도 계산기">
+          content="게임 계산기, PC 계산기, 다운로드 시간 계산기, 저장공간 계산기, 게임 설치 공간 계산기, FPS 계산기, 프레임타임 계산기, 전기요금 계산기, 인터넷 속도 계산기">
 
     <meta name="robots" content="index, follow">
 
@@ -22,6 +22,7 @@
 
 <div class="container">
 
+    <!-- 네비게이션 -->
     <nav class="navbar">
 
         <a href="/" class="logo">
@@ -29,17 +30,37 @@
         </a>
 
         <div class="nav-links">
-            <a href="/download">다운로드 시간</a>
-            <a href="/storage">저장공간</a>
-            <a href="/game-storage">게임 설치</a>
-            <a href="/fps">FPS</a>
-            <a href="/electricity">전기요금</a>
-            <a href="/speed">인터넷 속도</a>
+
+            <a href="/download">
+                다운로드 시간
+            </a>
+
+            <a href="/storage">
+                저장공간
+            </a>
+
+            <a href="/game-storage">
+                게임 설치
+            </a>
+
+            <a href="/fps">
+                FPS
+            </a>
+
+            <a href="/electricity">
+                전기요금
+            </a>
+
+            <a href="/speed">
+                인터넷 속도
+            </a>
+
         </div>
 
     </nav>
 
 
+    <!-- 메인 제목 -->
     <h1>GameTool</h1>
 
     <p class="subtitle">
@@ -47,64 +68,97 @@
     </p>
 
 
+    <!-- 계산기 목록 -->
     <div class="tools">
 
         <a href="/download" class="tool">
+
             <h2>📥 다운로드 시간 계산기</h2>
+
             <p>
                 게임이나 파일의 용량과 인터넷 속도를 입력하면
                 다운로드에 걸리는 시간을 계산합니다.
             </p>
+
         </a>
 
 
         <a href="/storage" class="tool">
+
             <h2>💾 저장공간 계산기</h2>
+
             <p>
                 KB, MB, GB, TB 등 저장공간 단위를
                 간편하게 변환합니다.
             </p>
+
         </a>
 
 
         <a href="/game-storage" class="tool">
+
             <h2>🎮 게임 설치 공간 계산기</h2>
+
             <p>
                 현재 저장공간으로 게임을 설치할 수 있는지
                 필요한 공간을 계산합니다.
             </p>
+
         </a>
 
 
         <a href="/fps" class="tool">
+
             <h2>🖥️ FPS 프레임타임 계산기</h2>
+
             <p>
                 FPS 값을 입력하면 한 프레임이 표시되는
                 시간을 계산합니다.
             </p>
+
         </a>
 
 
         <a href="/electricity" class="tool">
+
             <h2>⚡ PC 전기요금 계산기</h2>
+
             <p>
                 PC의 소비전력과 사용시간을 입력하여
                 예상 전기요금을 계산합니다.
             </p>
+
         </a>
 
 
         <a href="/speed" class="tool">
+
             <h2>🌐 인터넷 속도 계산기</h2>
+
             <p>
                 파일 크기와 목표 다운로드 시간을 입력하면
                 필요한 인터넷 속도를 계산합니다.
             </p>
+
+        </a>
+
+
+        <!-- FPS 정보 페이지 -->
+        <a href="/fps-table" class="tool">
+
+            <h2>📊 FPS 프레임타임 표</h2>
+
+            <p>
+                30, 60, 120, 144, 165, 240, 360 FPS의
+                프레임타임을 한눈에 확인할 수 있습니다.
+            </p>
+
         </a>
 
     </div>
 
 
+    <!-- 사이트 설명 -->
     <section class="description">
 
         <h2>무료 게임 및 PC 계산기</h2>
@@ -121,26 +175,50 @@
         </p>
 
 
-        <h2>GameTool에서 제공하는 계산기</h2>
+        <h2>FPS 프레임타임도 쉽게 확인하세요</h2>
 
         <p>
-            게임을 다운로드하기 전에 예상 시간을 확인하거나,
-            현재 SSD와 HDD에 게임을 설치할 공간이 충분한지 확인할 수 있습니다.
+            게임에서 FPS는 화면이 1초에 몇 개의 프레임을 표시하는지를
+            나타내는 값입니다.
         </p>
 
         <p>
-            또한 FPS에 따른 프레임타임을 확인하고,
-            PC의 소비전력을 기준으로 예상 전기요금을 계산하거나
+            FPS가 높아질수록 한 프레임에 걸리는 시간은 짧아집니다.
+            60FPS, 144FPS, 240FPS 등 원하는 FPS의 프레임타임을
+            확인하고 싶다면 아래 페이지를 이용할 수 있습니다.
+        </p>
+
+        <p>
+            👉 <a href="/fps">FPS 프레임타임 계산기</a>
+        </p>
+
+        <p>
+            👉 <a href="/fps-table">FPS 프레임타임 표</a>
+        </p>
+
+
+        <h2>GameTool의 주요 기능</h2>
+
+        <p>
+            GameTool에서는 게임 다운로드 시간과 저장공간을 계산하고,
+            게임 설치에 필요한 공간을 확인할 수 있습니다.
+        </p>
+
+        <p>
+            또한 FPS와 프레임타임을 계산하거나 PC의 예상 전기요금,
             원하는 시간 안에 파일을 다운로드하기 위해 필요한
-            인터넷 속도도 계산할 수 있습니다.
+            인터넷 속도를 확인할 수 있습니다.
         </p>
 
     </section>
 
 
+    <!-- 푸터 -->
     <footer>
 
-        <p>© 2026 GameTool</p>
+        <p>
+            © 2026 GameTool
+        </p>
 
         <p>
             게임과 PC에 필요한 다양한 계산기를 무료로 제공합니다.
