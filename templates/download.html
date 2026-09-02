@@ -1,345 +1,168 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <title>다운로드 시간 계산기 - 게임 다운로드 시간 계산 | GameTool</title>
 
-    <title>다운로드 시간 계산기 | 게임 다운로드 시간 계산 | GameTool</title>
+    <meta name="description"
+          content="게임이나 파일의 크기와 인터넷 속도를 입력하면 예상 다운로드 시간을 계산할 수 있는 무료 다운로드 시간 계산기입니다.">
 
-    <meta
-        name="description"
-        content="게임과 파일의 용량, 인터넷 속도(Mbps)를 입력하면 예상 다운로드 시간을 계산할 수 있는 무료 다운로드 시간 계산기입니다."
-    >
-
-    <meta
-        name="keywords"
-        content="다운로드 시간 계산기, 다운로드 시간, 인터넷 속도, 게임 다운로드 시간, 게임 다운로드 시간 계산, Mbps, 다운로드 속도 계산"
-    >
+    <meta name="keywords"
+          content="다운로드 시간 계산기, 게임 다운로드 시간, 다운로드 속도 계산, 파일 다운로드 시간, 인터넷 속도">
 
     <meta name="robots" content="index, follow">
 
-    <link
-        rel="stylesheet"
-        href="{{ url_for('static', filename='style.css') }}"
-    >
-
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
 </head>
-
 
 <body>
 
+<div class="container">
 
-<!-- =========================
-     상단 메뉴
-     ========================= -->
+    <nav class="navbar">
 
-<nav class="navbar">
+        <a href="/" class="logo">🎮 GameTool</a>
 
-    <div class="navbar-inner">
-
-        <a href="/" class="logo">
-            🎮 GameTool
-        </a>
-
-
-        <div class="nav-menu">
-
-            <a href="/">
-                홈
-            </a>
-
-            <a href="/download">
-                다운로드 계산기
-            </a>
-
-            <a href="/storage">
-                저장공간 계산기
-            </a>
-
-            <a href="/game-storage">
-                게임 설치 공간
-            </a>
-
-            <a href="/fps">
-                FPS 계산기
-            </a>
-
+        <div class="nav-links">
+            <a href="/download">다운로드 시간</a>
+            <a href="/storage">저장공간</a>
+            <a href="/game-storage">게임 설치</a>
+            <a href="/fps">FPS</a>
+            <a href="/electricity">전기요금</a>
+            <a href="/speed">인터넷 속도</a>
         </div>
 
-    </div>
-
-</nav>
+    </nav>
 
 
+    <h1>📥 다운로드 시간 계산기</h1>
 
-<!-- =========================
-     메인
-     ========================= -->
-
-<main>
-
-    <div class="container">
+    <p class="subtitle">
+        게임이나 파일의 용량과 인터넷 속도를 입력하면 예상 다운로드 시간을 계산합니다.
+    </p>
 
 
-        <!-- =========================
-             다운로드 시간 계산기
-             ========================= -->
+    <div class="calculator">
 
-        <div class="calculator">
+        <form method="POST">
 
-            <h1>
-                🌐 다운로드 시간 계산기
-            </h1>
+            <label for="size">
+                파일 크기 (GB)
+            </label>
 
-
-            <p>
-                게임이나 파일의 용량과 인터넷 속도를 입력하면
-                예상 다운로드 시간을 계산합니다.
-            </p>
-
-
-            <form method="POST">
-
-
-                <div class="input-group">
-
-                    <label>
-                        파일 크기 (GB)
-                    </label>
-
-                    <input
-                        type="number"
-                        name="size"
-                        step="0.01"
-                        min="0"
-                        placeholder="예: 100"
-                        required
-                    >
-
-                </div>
-
-
-
-                <div class="input-group">
-
-                    <label>
-                        인터넷 속도 (Mbps)
-                    </label>
-
-                    <input
-                        type="number"
-                        name="speed"
-                        step="0.01"
-                        min="0"
-                        placeholder="예: 500"
-                        required
-                    >
-
-                </div>
-
-
-
-                <button type="submit">
-                    다운로드 시간 계산
-                </button>
-
-            </form>
-
-
-
-            {% if result %}
-
-            <div class="result">
-
-                <h2>
-                    예상 다운로드 시간
-                </h2>
-
-                {{ result }}
-
-            </div>
-
-            {% endif %}
-
-
-
-            <a
-                href="/"
-                class="home-link"
+            <input
+                type="number"
+                id="size"
+                name="size"
+                step="0.01"
+                min="0"
+                placeholder="예: 100"
+                required
             >
-                ← GameTool 홈으로
-            </a>
 
+
+            <label for="speed">
+                인터넷 속도 (Mbps)
+            </label>
+
+            <input
+                type="number"
+                id="speed"
+                name="speed"
+                step="0.01"
+                min="0"
+                placeholder="예: 500"
+                required
+            >
+
+
+            <button type="submit">
+                다운로드 시간 계산
+            </button>
+
+        </form>
+
+
+        {% if result %}
+
+        <div class="result">
+            <strong>예상 다운로드 시간</strong><br><br>
+            {{ result | safe }}
         </div>
 
-
-
-        <!-- =========================
-             SEO 설명
-             ========================= -->
-
-        <div class="calculator">
-
-            <h2>
-                📖 다운로드 시간 계산기는 어떻게 계산할까요?
-            </h2>
-
-
-            <p>
-                다운로드 시간은 파일의 크기와 인터넷 속도를
-                이용하여 대략적으로 계산할 수 있습니다.
-            </p>
-
-
-            <p>
-                인터넷 속도는 일반적으로 Mbps 단위로 표시됩니다.
-                하지만 파일 다운로드 속도는 MB/s로 표시되는 경우가 많기 때문에
-                두 단위를 구분해야 합니다.
-            </p>
-
-
-            <h3>
-                Mbps와 MB/s의 차이
-            </h3>
-
-
-            <p>
-                1 Byte는 8 bit이므로
-                Mbps를 MB/s로 변환하려면 8로 나누면 됩니다.
-            </p>
-
-
-            <p>
-                예를 들어 인터넷 속도가 500Mbps라면
-                이론적인 최대 다운로드 속도는 약 62.5MB/s입니다.
-            </p>
-
-
-            <h3>
-                다운로드 시간 계산 방법
-            </h3>
-
-
-            <p>
-                파일 크기를 MB로 변환한 다음
-                다운로드 속도(MB/s)로 나누면
-                예상 다운로드 시간을 구할 수 있습니다.
-            </p>
-
-
-            <p>
-                이 계산기는 1GB를 1024MB로 계산합니다.
-                실제 다운로드 시간은 서버 상태,
-                인터넷 회선 상태, Wi-Fi 환경 등에 따라
-                달라질 수 있습니다.
-            </p>
-
-
-            <h3>
-                🎮 게임 다운로드 시간 예시
-            </h3>
-
-
-            <p>
-                예를 들어 100GB 크기의 게임을
-                500Mbps 인터넷으로 다운로드한다고 가정하면
-                이론적인 다운로드 시간은 약 27분입니다.
-            </p>
-
-
-            <p>
-                실제 시간은 게임 서버와 네트워크 상황에 따라
-                더 길어질 수 있습니다.
-            </p>
-
-
-            <h3>
-                ❓ 자주 묻는 질문
-            </h3>
-
-
-            <p>
-                <strong>Q. 100GB 게임은 얼마나 걸리나요?</strong>
-            </p>
-
-            <p>
-                인터넷 속도에 따라 달라집니다.
-                위 계산기에 파일 크기와 인터넷 속도를 입력하면
-                예상 다운로드 시간을 확인할 수 있습니다.
-            </p>
-
-
-            <p>
-                <strong>Q. 1Gbps 인터넷이면 얼마나 빠른가요?</strong>
-            </p>
-
-            <p>
-                1Gbps는 1000Mbps이므로
-                이론적으로 약 125MB/s의 속도입니다.
-            </p>
-
-
-            <p>
-                <strong>Q. 계산 결과와 실제 다운로드 시간이 다른 이유는?</strong>
-            </p>
-
-            <p>
-                계산기는 이론적인 최대 속도를 기준으로 합니다.
-                실제로는 서버 속도, 네트워크 혼잡,
-                Wi-Fi 환경 등에 의해 다운로드 속도가 낮아질 수 있습니다.
-            </p>
-
-
-            <p>
-                <strong>Q. 10GB 파일은 얼마나 걸리나요?</strong>
-            </p>
-
-            <p>
-                인터넷 속도를 함께 알아야 정확한 예상 시간을 계산할 수 있습니다.
-                파일 크기와 인터넷 속도를 입력하면 바로 확인할 수 있습니다.
-            </p>
-
-
-            <p>
-                <strong>Q. 게임 다운로드에도 사용할 수 있나요?</strong>
-            </p>
-
-            <p>
-                네. Steam, Epic Games, 게임 런처 등에서
-                다운로드하려는 게임의 용량과 인터넷 속도를 입력하면
-                예상 다운로드 시간을 확인할 수 있습니다.
-            </p>
-
-        </div>
-
+        {% endif %}
 
     </div>
 
-</main>
+
+    <section class="description">
+
+        <h2>다운로드 시간은 어떻게 계산하나요?</h2>
+
+        <p>
+            다운로드 시간은 파일 크기와 인터넷 다운로드 속도를
+            이용하여 대략적으로 계산할 수 있습니다.
+        </p>
+
+        <p>
+            인터넷 속도는 일반적으로 Mbps 단위로 표시되며,
+            파일 다운로드 속도는 MB/s 단위로 계산할 수 있습니다.
+        </p>
 
 
+        <h2>Mbps와 MB/s의 차이</h2>
 
-<!-- =========================
-     푸터
-     ========================= -->
+        <p>
+            Mbps는 메가비트(Megabit per second)를 의미하고,
+            MB/s는 메가바이트(Megabyte per second)를 의미합니다.
+        </p>
 
-<footer class="footer">
+        <p>
+            8Mbps는 이론적으로 약 1MB/s의 전송 속도에 해당합니다.
+        </p>
 
-    GameTool © 2026
 
-    <br>
+        <h2>실제 다운로드 시간은 달라질 수 있습니다</h2>
 
-    게임과 PC를 위한 무료 도구 사이트
+        <p>
+            계산 결과는 이론적인 예상 시간입니다.
+            실제 다운로드 속도는 게임 서버의 상태, Wi-Fi 환경,
+            네트워크 혼잡 등의 영향을 받을 수 있습니다.
+        </p>
 
-</footer>
 
+        <h2>자주 묻는 질문</h2>
+
+        <h3>100GB 게임은 얼마나 걸리나요?</h3>
+
+        <p>
+            인터넷 속도에 따라 달라집니다.
+            파일 크기 100GB와 현재 인터넷 속도를 입력하면
+            예상 다운로드 시간을 확인할 수 있습니다.
+        </p>
+
+        <h3>500Mbps 인터넷이면 빠른가요?</h3>
+
+        <p>
+            500Mbps는 이론적으로 약 62.5MB/s의 전송 속도에 해당합니다.
+            실제 속도는 네트워크 환경에 따라 달라질 수 있습니다.
+        </p>
+
+    </section>
+
+
+    <footer>
+
+        <p>© 2026 GameTool</p>
+
+        <p>게임과 PC에 필요한 다양한 계산기를 무료로 제공합니다.</p>
+
+    </footer>
+
+</div>
 
 </body>
-
 </html>
