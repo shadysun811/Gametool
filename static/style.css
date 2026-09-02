@@ -384,4 +384,46 @@ footer p {
     .description {
         padding: 22px;
     }
+/* =========================
+   FPS 표
+   ========================= */
+
+.fps-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 5px;
+}
+
+.fps-table th,
+.fps-table td {
+    padding: 14px 12px;
+    text-align: center;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.fps-table th {
+    background: #f8fafc;
+    color: #374151;
+    font-weight: 700;
+}
+
+.fps-table td {
+    color: #4b5563;
+}
+
+.fps-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.fps-table tbody tr:hover {
+    background: #f8fafc;
+}
+
+@media (max-width: 600px) {
+
+    .fps-table th,
+    .fps-table td {
+        padding: 11px 6px;
+        font-size: 13px;
+    }
 }
