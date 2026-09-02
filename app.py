@@ -350,6 +350,11 @@ def reaction():
     return render_template("reaction.html")
 
 
+@app.route("/privacy")
+def privacy():
+    return render_template("privacy.html")
+
+
 # =========================
 # 서버 실행
 # =========================
