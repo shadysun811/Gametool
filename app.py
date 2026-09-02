@@ -338,6 +338,14 @@ def speed():
 
 
 # =========================
+# FPS 프레임타임 표
+# =========================
+@app.route("/fps-table")
+def fps_table():
+    return render_template("fps_table.html")
+
+
+# =========================
 # 서버 실행
 # =========================
 if __name__ == "__main__":
