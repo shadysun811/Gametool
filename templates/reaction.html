@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>반응속도 테스트 - 무료 반응속도 측정 | GameTool</title>
+
+    <meta name="description"
+          content="버튼을 눌러 자신의 반응속도를 밀리초(ms) 단위로 측정할 수 있는 무료 반응속도 테스트입니다.">
+
+    <meta name="keywords"
+          content="반응속도 테스트, 반응속도 측정, 반응속도 검사, 반응속도 게임, 반응속도 ms">
+
+    <meta name="robots" content="index, follow">
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- 상단 메뉴 -->
+    <nav class="navbar">
+
+        <a href="/" class="logo">
+            🎮 GameTool
+        </a>
+
+        <div class="nav-links">
+
+            <a href="/download">
+                다운로드 시간
+            </a>
+
+            <a href="/storage">
+                저장공간
+            </a>
+
+            <a href="/game-storage">
+                게임 설치
+            </a>
+
+            <a href="/fps">
+                FPS
+            </a>
+
+            <a href="/electricity">
+                전기요금
+            </a>
+
+            <a href="/speed">
+                인터넷 속도
+            </a>
+
+            <a href="/reaction">
+                반응속도
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- 제목 -->
+    <h1>⚡ 반응속도 테스트</h1>
+
+    <p class="subtitle">
+        화면이 초록색으로 바뀌는 순간 최대한 빠르게 클릭하세요.
+    </p>
+
+
+    <!-- 테스트 영역 -->
+    <div class="reaction-box">
+
+        <div id="reaction-area" class="reaction-area">
+
+            <div id="reaction-message">
+                시작 버튼을 눌러 테스트를 시작하세요.
+            </div>
+
+            <button id="reaction-button">
+                시작하기
+            </button>
+
+        </div>
+
+
+        <!-- 결과 -->
+        <div id="reaction-result" class="reaction-result hidden">
+
+            <div class="reaction-result-title">
+                반응속도
+            </div>
+
+            <div id="reaction-time" class="reaction-time">
+                0 ms
+            </div>
+
+            <div id="reaction-grade" class="reaction-grade">
+                -
+            </div>
+
+            <button id="retry-button" class="retry-button">
+                다시 테스트
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- 설명 -->
+    <section class="description">
+
+        <h2>반응속도 테스트란?</h2>
+
+        <p>
+            반응속도 테스트는 화면의 변화에 얼마나 빠르게 반응할 수 있는지를
+            측정하는 간단한 테스트입니다.
+        </p>
+
+        <p>
+            GameTool의 반응속도 테스트에서는 화면이 초록색으로 바뀐 순간부터
+            사용자가 클릭하기까지 걸린 시간을 밀리초(ms) 단위로 측정합니다.
+        </p>
+
+
+        <h2>반응속도 측정 단위</h2>
+
+        <p>
+            반응속도는 일반적으로 <strong>ms(밀리초)</strong> 단위로 표시합니다.
+        </p>
+
+        <p>
+            숫자가 낮을수록 더 짧은 시간 안에 반응했다는 의미입니다.
+        </p>
+
+
+        <h2>반응속도 기준</h2>
+
+        <p>
+            반응속도는 사람마다 다르며 사용하는 기기와 마우스,
+            모니터, 입력 장치 등에 따라서도 측정 결과가 달라질 수 있습니다.
+        </p>
+
+        <p>
+            따라서 아래 기준은 참고용으로만 확인하세요.
+        </p>
+
+        <div class="reaction-guide">
+
+            <div>
+                <strong>200ms 미만</strong>
+                <span>매우 빠른 반응</span>
+            </div>
+
+            <div>
+                <strong>200~250ms</strong>
+                <span>빠른 반응</span>
+            </div>
+
+            <div>
+                <strong>250~300ms</strong>
+                <span>보통 수준</span>
+            </div>
+
+            <div>
+                <strong>300ms 이상</strong>
+                <span>느린 편</span>
+            </div>
+
+        </div>
+
+
+        <h2>반응속도에 영향을 주는 요소</h2>
+
+        <p>
+            반응속도는 단순히 사람의 능력만으로 결정되지 않습니다.
+            모니터의 주사율, 입력장치의 지연시간, 컴퓨터의 성능,
+            브라우저 환경 등에 따라서도 측정 결과가 달라질 수 있습니다.
+        </p>
+
+        <p>
+            같은 조건에서 여러 번 테스트하여 자신의 평균 반응속도를
+            확인하는 것이 더욱 유용합니다.
+        </p>
+
+
+        <h2>자주 묻는 질문</h2>
+
+        <h3>반응속도는 몇 ms가 빠른 건가요?</h3>
+
+        <p>
+            일반적으로 반응속도 숫자가 낮을수록 빠른 반응을 의미합니다.
+            다만 사람과 측정 환경에 따라 결과가 달라질 수 있습니다.
+        </p>
+
+        <h3>반응속도 테스트 결과가 매번 다른 이유는 무엇인가요?</h3>
+
+        <p>
+            반응속도는 집중력과 피로도뿐만 아니라 마우스, 키보드,
+            모니터와 같은 장치와 브라우저 환경의 영향을 받을 수 있습니다.
+        </p>
+
+        <h3>휴대폰에서도 테스트할 수 있나요?</h3>
+
+        <p>
+            네. 스마트폰이나 태블릿에서도 사용할 수 있습니다.
+            다만 터치스크린은 마우스와 입력 방식이 다르기 때문에
+            PC에서 측정한 결과와 직접 비교하는 것은 적절하지 않을 수 있습니다.
+        </p>
+
+    </section>
+
+
+    <!-- 푸터 -->
+    <footer>
+
+        <p>
+            © 2026 GameTool
+        </p>
+
+        <p>
+            게임과 PC에 필요한 다양한 계산기를 무료로 제공합니다.
+        </p>
+
+    </footer>
+
+</div>
+
+
+<script>
+
+const reactionArea = document.getElementById("reaction-area");
+const reactionButton = document.getElementById("reaction-button");
+
+const reactionMessage = document.getElementById("reaction-message");
+
+const reactionResult = document.getElementById("reaction-result");
+const reactionTime = document.getElementById("reaction-time");
+const reactionGrade = document.getElementById("reaction-grade");
+
+const retryButton = document.getElementById("retry-button");
+
+let startTime = 0;
+let timer = null;
+
+let testStarted = false;
+let waiting = false;
+
+
+function startTest() {
+
+    clearTimeout(timer);
+
+    reactionResult.classList.add("hidden");
+
+    reactionArea.classList.remove("reaction-ready");
+    reactionArea.classList.remove("reaction-waiting");
+    reactionArea.classList.remove("reaction-false");
+
+    reactionMessage.textContent =
+        "초록색으로 바뀔 때까지 기다리세요.";
+
+    reactionButton.textContent =
+        "기다리는 중...";
+
+    reactionButton.disabled = false;
+
+    testStarted = true;
+    waiting = true;
+
+    const delay =
+        Math.floor(Math.random() * 3000) + 2000;
+
+    timer = setTimeout(() => {
+
+        reactionArea.classList.remove("reaction-waiting");
+        reactionArea.classList.add("reaction-ready");
+
+        reactionMessage.textContent =
+            "지금 클릭하세요!";
+
+        reactionButton.textContent =
+            "클릭!";
+
+        startTime = performance.now();
+
+        waiting = false;
+
+    }, delay);
+
+    reactionArea.classList.add("reaction-waiting");
+}
+
+
+function handleReaction() {
+
+    if (!testStarted) {
+
+        startTest();
+
+        return;
+    }
+
+
+    if (waiting) {
+
+        clearTimeout(timer);
+
+        reactionArea.classList.remove("reaction-waiting");
+        reactionArea.classList.add("reaction-false");
+
+        reactionMessage.textContent =
+            "너무 빨랐습니다!";
+
+        reactionButton.textContent =
+            "다시 시작";
+
+        testStarted = false;
+        waiting = false;
+
+        return;
+    }
+
+
+    const endTime = performance.now();
+
+    const result =
+        Math.round(endTime - startTime);
+
+    showResult(result);
+
+    testStarted = false;
+    waiting = false;
+
+}
+
+
+function showResult(result) {
+
+    reactionArea.classList.remove("reaction-ready");
+
+    reactionMessage.textContent =
+        "테스트 완료!";
+
+    reactionButton.textContent =
+        "다시 테스트";
+
+    reactionTime.textContent =
+        result + " ms";
+
+
+    let grade = "";
+
+    if (result < 200) {
+
+        grade = "🔥 매우 빠른 반응속도!";
+
+    } else if (result < 250) {
+
+        grade = "⚡ 빠른 반응속도!";
+
+    } else if (result < 300) {
+
+        grade = "👍 평균적인 반응속도";
+
+    } else {
+
+        grade = "💪 조금 더 연습해보세요!";
+
+    }
+
+
+    reactionGrade.textContent = grade;
+
+    reactionResult.classList.remove("hidden");
+}
+
+
+reactionButton.addEventListener(
+    "click",
+    handleReaction
+);
+
+
+retryButton.addEventListener(
+    "click",
+    startTest
+);
+
+</script>
+
+</body>
+</html>
